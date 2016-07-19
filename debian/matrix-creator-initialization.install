@@ -1,3 +1,4 @@
 blob usr/share/admobilize/matrix-creator
 cfg usr/share/admobilize/matrix-creator
 sam3-program.bash usr/share/admobilize/matrix-creator
+fpga-program.bash usr/share/admobilize/matrix-creator
