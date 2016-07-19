@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Emabling firmware loading at startup"
+systemctl enable matrix-creator-firmware
