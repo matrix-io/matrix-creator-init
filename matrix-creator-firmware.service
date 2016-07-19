@@ -1,0 +1,9 @@
+[Unit]
+Description=Program FPGA and SAM3 MCU
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/admobilize/matrix-creator/fpga-program.bash;/usr/share/admobilize/matrix-creator/sam3-program.bash
+
+[Install]
+WantedBy=multi-user.target
