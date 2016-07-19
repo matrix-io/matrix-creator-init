@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo xc3sprog -c matrix_pi firmware-0.8/blob/system.bit -p 1
+
+
