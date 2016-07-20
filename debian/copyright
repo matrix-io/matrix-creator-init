@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: matrix-creator-initialization
+Upstream-Name: matrix-creator-init
 Source: https://www.admobilize.com/
 
 Files: *
