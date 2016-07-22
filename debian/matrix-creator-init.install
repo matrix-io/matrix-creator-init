@@ -2,5 +2,6 @@ blob usr/share/admobilize/matrix-creator
 cfg usr/share/admobilize/matrix-creator
 sam3-program.bash usr/share/admobilize/matrix-creator
 fpga-program.bash usr/share/admobilize/matrix-creator
+radio-init.bash usr/share/admobilize/matrix-creator
 matrix-creator-firmware.service lib/systemd/system
 matrix-creator-reset-jtag usr/bin

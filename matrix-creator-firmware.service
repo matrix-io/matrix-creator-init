@@ -5,6 +5,7 @@ Description=Program FPGA and SAM3 MCU
 Type=oneshot
 ExecStart=/usr/share/admobilize/matrix-creator/fpga-program.bash
 ExecStart=/usr/share/admobilize/matrix-creator/sam3-program.bash
+ExecStart=/usr/share/admobilize/matrix-creator/radio-init.bash
 
 [Install]
 WantedBy=multi-user.target
