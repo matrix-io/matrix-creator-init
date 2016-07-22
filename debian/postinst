@@ -3,4 +3,4 @@ echo "Emabling firmware loading at startup"
 systemctl enable matrix-creator-firmware
 #echo "Loading firmware..."
 #service matrix-creator-firmware start
-echo "Please reset your Raspberry Pi after installation"
+echo "Please restart your Raspberry Pi after installation"
