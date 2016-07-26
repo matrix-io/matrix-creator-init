@@ -1,3 +1,9 @@
+matrix-creator-init (0.2-1) unstable; urgency=low
+
+  * Add rules to inable IR.
+
+ -- unknown <pi@raspberrypi>  Mon, 18 Jul 2016 15:13:28 -0800
+
 matrix-creator-init (0.1-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
