@@ -1,3 +1,9 @@
+matrix-creator-init (0.2-3) unstable; urgency=low
+
+  * Update lirc config.
+
+ -- Admobilize <info@admobilize.com>  Tue, 26 Jul 2016 15:13:28 -0800
+
 matrix-creator-init (0.2-2) unstable; urgency=low
 
   * Depend on lirc.

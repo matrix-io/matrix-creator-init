@@ -4,6 +4,7 @@ sam3-program.bash usr/share/admobilize/matrix-creator
 fpga-program.bash usr/share/admobilize/matrix-creator
 creator-init.bash usr/share/admobilize/matrix-creator
 radio-init.bash usr/share/admobilize/matrix-creator
+lirc_hardware.conf usr/share/admobilize/matrix-creator
 boot_modifications.txt usr/share/admobilize/matrix-creator/config
 admobilize_edit_setting.py usr/share/admobilize/matrix-creator
 matrix-creator-firmware.service lib/systemd/system

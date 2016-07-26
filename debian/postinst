@@ -1,10 +1,15 @@
-#!/bin/bash
-echo "Emabling firmware loading at startup"
+#!/bin/bash -e
+
+echo "Enabling firmware loading at startup"
 systemctl enable matrix-creator-firmware
 #echo "Loading firmware..."
 #service matrix-creator-firmware start
 
 echo "Enabling IR and SPI"
 cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
+
+echo "Changing LIRC configuration"
+cp -n /etc/lirc/hardware.conf /etc/lirc/hardware.conf.before.creator.init
+cp /usr/share/admobilize/matrix-creator/lirc_hardware.conf /etc/lirc/hardware.conf
 
 echo "Please restart your Raspberry Pi after installation"
