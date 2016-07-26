@@ -3,4 +3,8 @@ echo "Emabling firmware loading at startup"
 systemctl enable matrix-creator-firmware
 #echo "Loading firmware..."
 #service matrix-creator-firmware start
+
+echo "Enabling IR and SPI"
+cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
+
 echo "Please restart your Raspberry Pi after installation"

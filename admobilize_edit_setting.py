@@ -51,6 +51,7 @@ for original in ORIGINAL_LINES:
             print '{}={}'.format(key, new_value)
             del  KEYS_TO_CHANGE[key]
         elif key in KEYS_TO_CHANGE and KEYS_TO_CHANGE[key] == value:
+            print '{}={}'.format(key, KEYS_TO_CHANGE[key])
             del KEYS_TO_CHANGE[key]
         else:
             print original[1]
