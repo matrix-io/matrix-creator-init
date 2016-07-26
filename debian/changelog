@@ -1,8 +1,14 @@
+matrix-creator-init (0.2-2) unstable; urgency=low
+
+  * Depend on lirc.
+
+ -- Admobilize <info@admobilize.com>  Tue, 26 Jul 2016 15:13:28 -0800
+
 matrix-creator-init (0.2-1) unstable; urgency=low
 
   * Add rules to inable IR.
 
- -- unknown <pi@raspberrypi>  Mon, 18 Jul 2016 15:13:28 -0800
+ -- Admobilize <info@admobilize.com>  Mon, 18 Jul 2016 15:13:28 -0800
 
 matrix-creator-init (0.1-1) unstable; urgency=low
 
