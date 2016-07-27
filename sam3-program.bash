@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [[ -f /usr/share/admobilize/matrix-creator/sam3-program.bash.done ]] ; then
+    echo "SAM3 MCU was programmed before. Not programming it again."
+    exit 0
+fi
+
 cd /usr/share/admobilize/matrix-creator
 
 function try_program() {
@@ -12,12 +17,12 @@ function try_program() {
   openocd -f cfg/sam3s.cfg
 }
 
-
 count=0
 while [  $count -lt 10 ]; do
   try_program
   if [ $? -eq 0 ];then
         echo "****  SAM3 MCU programmed!"
+        touch /usr/share/admobilize/matrix-creator/sam3-program.bash.done
         exit 0
    fi
   let count=count+1

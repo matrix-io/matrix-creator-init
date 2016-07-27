@@ -2,8 +2,11 @@
 
 echo "Enabling firmware loading at startup"
 systemctl enable matrix-creator-firmware
-#echo "Loading firmware..."
-#service matrix-creator-firmware start
+
+# This didn't work due to an unresolved shared library.
+# Asking users to reboot after installation.
+# echo "Loading firmware..."
+# service matrix-creator-firmware start
 
 echo "Enabling IR and SPI"
 cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
@@ -11,5 +14,8 @@ cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/
 echo "Changing LIRC configuration"
 cp -n /etc/lirc/hardware.conf /etc/lirc/hardware.conf.before.creator.init
 cp /usr/share/admobilize/matrix-creator/lirc_hardware.conf /etc/lirc/hardware.conf
+
+# Allow programming of MCU in case of firmware updates
+rm -f /usr/share/admobilize/matrix-creator/sam3-program.bash.done
 
 echo "Please restart your Raspberry Pi after installation"

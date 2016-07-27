@@ -1,3 +1,10 @@
+matrix-creator-init (0.2-4) unstable; urgency=low
+
+  * Only program the MCU once to save write cycles.
+
+ -- Admobilize <info@admobilize.com>  Tue, 26 Jul 2016 15:13:28 -0800
+
+
 matrix-creator-init (0.2-3) unstable; urgency=low
 
   * Update lirc config.
