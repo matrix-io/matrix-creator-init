@@ -1,3 +1,9 @@
+matrix-creator-init (0.2-6) unstable; urgency=medium
+
+  687c067075a4ab223885db916616a0ae system.bit
+
+ --  <pi@raspberrypi>  Mon, 01 Aug 2016 12:27:35 -0800
+
 matrix-creator-init (0.2-5) unstable; urgency=low
 
   Firmware update.
