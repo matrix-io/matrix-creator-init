@@ -1,3 +1,9 @@
+matrix-creator-init (0.2-8) unstable; urgency=medium
+
+  Reset MCU even if it doesn't need to be programmed.
+
+ --  <pi@raspberrypi>  Tue, 09 Aug 2016 13:09:04 -0800
+
 matrix-creator-init (0.2-7) unstable; urgency=medium
 
 
