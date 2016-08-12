@@ -1,3 +1,10 @@
+matrix-creator-init (0.2-10) unstable; urgency=medium
+
+  * Firmware update.
+  * 0d8e4cf0af0029203ea50b49ab26ec0e  system.bit
+
+ --  <pi@raspberrypi>  Fri, 12 Aug 2016 14:00:58 -0800
+
 matrix-creator-init (0.2-9) unstable; urgency=medium
 
   * Just bump version.
