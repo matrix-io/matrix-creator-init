@@ -21,7 +21,13 @@ cd /usr/share/admobilize/matrix-creator
 function try_program() {
   reset_mcu
   sleep 0.1
-  openocd -f cfg/sam3s.cfg
+
+  IS_PI1=$(cat /proc/cpuinfo | grep  BCM2708 | wc -l)
+  if [ $IS_PI1 -eq 1 ];then
+    openocd -f cfg/sam3s_pi1.cfg
+  else 
+    openocd -f cfg/sam3s_pi1_pi2.cfg
+  fi
 }
 
 count=0
