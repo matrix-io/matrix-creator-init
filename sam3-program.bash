@@ -26,7 +26,7 @@ function try_program() {
   if [ $IS_PI1 -eq 1 ];then
     openocd -f cfg/sam3s_pi1.cfg
   else 
-    openocd -f cfg/sam3s_pi1_pi2.cfg
+    openocd -f cfg/sam3s_pi2_pi3.cfg
   fi
 }
 
