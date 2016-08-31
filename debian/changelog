@@ -1,3 +1,9 @@
+matrix-creator-init (0.2-13) unstable; urgency=medium
+
+  * Bump version after Raspberry Pi B+ support.
+
+ --  <pi@raspberrypi>  Tue, 30 Aug 2016 16:07:04 -0800
+
 matrix-creator-init (0.2-12) unstable; urgency=medium
 
   * Firmware was updated. Bump version.
