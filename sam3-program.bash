@@ -101,5 +101,5 @@ while [  $count -lt 10 ]; do
    fi
   let count=count+1
 done
-echo "**** Could not program SAM3 MCU, you must be check the logfile {LOG_FILE}"
+echo "**** Could not program SAM3 MCU, you must be check the logfile ${LOG_FILE}"
 exit 1
