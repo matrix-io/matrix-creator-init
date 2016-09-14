@@ -1,3 +1,9 @@
+matrix-creator-init (0.2-14) unstable; urgency=medium
+
+  * Paranoid reset. Make users happy again.
+
+ --  <pi@raspberrypi>  Wed, 14 Sep 2016 13:36:02 -0800
+
 matrix-creator-init (0.2-13) unstable; urgency=medium
 
   * Bump version after Raspberry Pi B+ support.
