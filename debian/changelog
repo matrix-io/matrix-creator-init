@@ -1,3 +1,46 @@
+matrix-creator-init (0.2-14) unstable; urgency=medium
+
+  * Paranoid reset. Make users happy again.
+
+ --  <pi@raspberrypi>  Wed, 14 Sep 2016 13:36:02 -0800
+
+matrix-creator-init (0.2-13) unstable; urgency=medium
+
+  * Bump version after Raspberry Pi B+ support.
+
+ --  <pi@raspberrypi>  Tue, 30 Aug 2016 16:07:04 -0800
+
+matrix-creator-init (0.2-12) unstable; urgency=medium
+
+  * Firmware was updated. Bump version.
+
+ --  <pi@raspberrypi>  Mon, 29 Aug 2016 09:19:42 -0800
+
+matrix-creator-init (0.2-11) unstable; urgency=medium
+
+  * Firmware was updated. Bump version.
+
+ --  <pi@raspberrypi>  Thu, 25 Aug 2016 15:36:39 -0800
+
+matrix-creator-init (0.2-10) unstable; urgency=medium
+
+  * Firmware update.
+  * 0d8e4cf0af0029203ea50b49ab26ec0e  system.bit
+
+ --  <pi@raspberrypi>  Fri, 12 Aug 2016 14:00:58 -0800
+
+matrix-creator-init (0.2-9) unstable; urgency=medium
+
+  * Just bump version.
+
+ --  <pi@raspberrypi>  Tue, 09 Aug 2016 13:38:02 -0800
+
+matrix-creator-init (0.2-8) unstable; urgency=medium
+
+  Reset MCU even if it doesn't need to be programmed.
+
+ --  <pi@raspberrypi>  Tue, 09 Aug 2016 13:09:04 -0800
+
 matrix-creator-init (0.2-7) unstable; urgency=medium
 
 
