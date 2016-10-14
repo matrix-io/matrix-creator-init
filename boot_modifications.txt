@@ -3,3 +3,4 @@ dtparam=gpio_out_pin=13
 dtparam=gpio_in_pin=16
 dtparam=gpio_in_pull=down
 dtparam=spi=on
+start_x=1
