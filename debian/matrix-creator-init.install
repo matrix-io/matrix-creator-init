@@ -10,4 +10,5 @@ admobilize_edit_setting.py usr/share/admobilize/matrix-creator
 matrix-creator-firmware.service lib/systemd/system
 matrix-creator-reset-jtag usr/bin
 creator-mics.conf etc/modules-load.d
+raspicam.conf etc/modules-load.d
 asound.conf etc
