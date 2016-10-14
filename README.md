@@ -4,6 +4,3 @@ Source for the matrix-creator-init Debian package. This package programs the FPG
 
 ### Documentation
 https://matrix-io.github.io/matrix-documentation
-
-### Todos 
-* Improve the MCU programming verification process
