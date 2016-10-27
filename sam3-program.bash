@@ -103,7 +103,7 @@ function check_firmware() {
 super_reset 2>/dev/null
 
 count=0
-while [  $count -lt 10 ]; do
+while [  $count -lt 30 ]; do
   TEST=$(try_program)
   if [ "$TEST" == "1" ];then
         CHECK=$(check_firmware)
