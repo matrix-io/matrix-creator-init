@@ -89,15 +89,29 @@ function try_program() {
   echo $RES
 }
 
+function check_firmware() {
+ COMPARE_VERSION=$(diff <(./firmware_info) <(cat mcu_firmware.version)|wc -l)
+
+ if [ "$COMPARE_VERSION" == "0" ];then
+  echo 1
+ else #failed
+  echo 0 
+ fi
+}
+
+
 super_reset 2>/dev/null
 
 count=0
-while [  $count -lt 10 ]; do
+while [  $count -lt 30 ]; do
   TEST=$(try_program)
   if [ "$TEST" == "1" ];then
-        echo "****  SAM3 MCU programmed!"
-        touch /usr/share/admobilize/matrix-creator/sam3-program.bash.done
-        exit 0
+        CHECK=$(check_firmware)
+        if [ "$CHECK" == "1" ];then
+          echo "****  SAM3 MCU programmed!"
+          touch /usr/share/admobilize/matrix-creator/sam3-program.bash.done
+          exit 0
+        fi
    fi
   let count=count+1
 done
