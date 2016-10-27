@@ -1,3 +1,9 @@
+matrix-creator-init (0.2-21) unstable; urgency=medium
+
+  * Fix for https://github.com/matrix-io/matrix-creator-init/issues/10
+
+ --  <pi@raspberrypi>  Fri, 14 Oct 2016 10:51:43 -0800
+
 matrix-creator-init (0.2-20) unstable; urgency=medium
 
   * Add raspicam.conf to etc/modules-load.d.
