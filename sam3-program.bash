@@ -5,7 +5,7 @@ LOG_FILE=/tmp/sam3-program.log
  
 for i in 23 19 18 20 17 27 22 4 
 do
-  if [ ! -d /sys/class/gpio/gpio23 ]
+  if [ ! -d /sys/class/gpio/gpio$1 ]
   then
     echo $i > /sys/class/gpio/export
   fi
