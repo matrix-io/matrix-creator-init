@@ -5,37 +5,65 @@ LOG_FILE=/tmp/sam3-program.log
 function super_reset()
 {
   #Set EM_Enable
-  echo 23 > /sys/class/gpio/export 
+  if [ ! -d /sys/class/gpio/gpio23 ]
+  then  
+    echo 23 > /sys/class/gpio/export
+  fi
   echo out > /sys/class/gpio/gpio23/direction 
 
   #Set EM_BOOTMODE
-  echo 19 > /sys/class/gpio/export
+  if [ ! -d /sys/class/gpio/gpio19 ]
+  then
+    echo 19 > /sys/class/gpio/export
+  fi
   echo out > /sys/class/gpio/gpio19/direction
 
   #set EM_nRST
-  echo 18 > /sys/class/gpio/export
-  echo 20 > /sys/class/gpio/export
+  if [ ! -d /sys/class/gpio/gpio18 ]
+  then
+    echo 18 > /sys/class/gpio/export
+  fi
+
+  if [ ! -d /sys/class/gpio/gpio20 ]
+  then
+    echo 20 > /sys/class/gpio/export
+  fi  
   echo out > /sys/class/gpio/gpio18/direction
   echo out > /sys/class/gpio/gpio20/direction
 
   #Set TCK
-  echo 17 > /sys/class/gpio/export
+  if [ ! -d /sys/class/gpio/gpio17 ]
+  then
+    echo 17 > /sys/class/gpio/export
+  fi
   echo in > /sys/class/gpio/gpio17/direction
 
   #Set TDO
-  echo 27 > /sys/class/gpio/export
+  if [ ! -d /sys/class/gpio/gpio27 ]
+  then
+    echo 27 > /sys/class/gpio/export
+  fi
   echo in > /sys/class/gpio/gpio27/direction
 
   #Set TDI
-  echo 22 > /sys/class/gpio/export
+  if [ ! -d /sys/class/gpio/gpio22 ]
+  then
+    echo 22 > /sys/class/gpio/export
+  fi
   echo in > /sys/class/gpio/gpio22/direction
 
   #Set TMS
-  echo 4 > /sys/class/gpio/export
+  if [ ! -d /sys/class/gpio/gpio4 ]
+  then
+    echo 4 > /sys/class/gpio/export
+  fi
   echo in > /sys/class/gpio/gpio4/direction
 
   #Set EM_BOOTMODE
-  echo 18 > /sys/class/gpio/export
+  if [ ! -d /sys/class/gpio/gpio18 ]
+  then
+    echo 18 > /sys/class/gpio/export
+  fi
   echo out > /sys/class/gpio/gpio18/direction
 
   #Power OFF 
@@ -62,7 +90,10 @@ function super_reset()
 }
 
 function reset_mcu() {
-  echo 18 > /sys/class/gpio/export 2>/dev/null
+  if [ ! -d /sys/class/gpio/gpio18 ]
+  then
+    echo 18 > /sys/class/gpio/export
+  fi
   echo out > /sys/class/gpio/gpio18/direction
   echo 1 > /sys/class/gpio/gpio18/value
   echo 0 > /sys/class/gpio/gpio18/value
@@ -100,7 +131,7 @@ function check_firmware() {
 }
 
 
-super_reset 2>/dev/null
+super_reset 
 
 count=0
 while [  $count -lt 30 ]; do
