@@ -79,12 +79,8 @@ function try_program() {
   reset_mcu
   sleep 0.1
 
-  IS_PI1=$(cat /proc/cpuinfo | grep  BCM2708 | wc -l)
-  if [ $IS_PI1 -eq 1 ];then
-    RES=$(openocd -f cfg/sam3s_pi1.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
-  else
-    RES=$(openocd -f cfg/sam3s_pi2_pi3.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
-  fi
+  RES=$(openocd -f cfg/sam3s_rpi_sysfs.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
+
   echo $RES
 }
 
