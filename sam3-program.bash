@@ -4,45 +4,22 @@ LOG_FILE=/tmp/sam3-program.log
 
 function super_reset()
 {
-  #Set EM_Enable
-  echo 23 > /sys/class/gpio/export 
-  echo out > /sys/class/gpio/gpio23/direction 
+  # Set out mode  
+  for j in 18 19 20 23
+  do
+    echo out > /sys/class/gpio/gpio$j/direction
+  done
 
-  #Set EM_BOOTMODE
-  echo 19 > /sys/class/gpio/export
-  echo out > /sys/class/gpio/gpio19/direction
+  for k in 4 17 22 27
+  do
+    echo in > /sys/class/gpio/gpio$k/direction
+  done
 
-  #set EM_nRST
-  echo 18 > /sys/class/gpio/export
-  echo 20 > /sys/class/gpio/export
-  echo out > /sys/class/gpio/gpio18/direction
-  echo out > /sys/class/gpio/gpio20/direction
-
-  #Set TCK
-  echo 17 > /sys/class/gpio/export
-  echo in > /sys/class/gpio/gpio17/direction
-
-  #Set TDO
-  echo 27 > /sys/class/gpio/export
-  echo in > /sys/class/gpio/gpio27/direction
-
-  #Set TDI
-  echo 22 > /sys/class/gpio/export
-  echo in > /sys/class/gpio/gpio22/direction
-
-  #Set TMS
-  echo 4 > /sys/class/gpio/export
-  echo in > /sys/class/gpio/gpio4/direction
-
-  #Set EM_BOOTMODE
-  echo 18 > /sys/class/gpio/export
-  echo out > /sys/class/gpio/gpio18/direction
-
-  #Power OFF 
-  echo 0 > /sys/class/gpio/gpio23/value
+  #Power EM_358 OFF 
   echo 1 > /sys/class/gpio/gpio18/value
-  echo 1 > /sys/class/gpio/gpio20/value
   echo 1 > /sys/class/gpio/gpio19/value
+  echo 1 > /sys/class/gpio/gpio20/value
+  echo 0 > /sys/class/gpio/gpio23/value
   sleep 0.5
 
   #Power ON
@@ -50,8 +27,8 @@ function super_reset()
   sleep 0.5
 
   echo 0 > /sys/class/gpio/gpio18/value
-  echo 0 > /sys/class/gpio/gpio20/value
   echo 0 > /sys/class/gpio/gpio19/value
+  echo 0 > /sys/class/gpio/gpio20/value
 
   sleep 0.5
   echo 1 > /sys/class/gpio/gpio18/value
@@ -62,31 +39,25 @@ function super_reset()
 }
 
 function reset_mcu() {
-  echo 18 > /sys/class/gpio/export 2>/dev/null
+  if [ ! -d /sys/class/gpio/gpio18 ]
+  then
+    echo 18 > /sys/class/gpio/export
+  fi
   echo out > /sys/class/gpio/gpio18/direction
   echo 1 > /sys/class/gpio/gpio18/value
   echo 0 > /sys/class/gpio/gpio18/value
   echo 1 > /sys/class/gpio/gpio18/value
 }
 
-if [[ -f /usr/share/admobilize/matrix-creator/sam3-program.bash.done ]] ; then
-    echo "SAM3 MCU was programmed before. Not programming it again."
-    exit 0
-fi
-
-cd /usr/share/admobilize/matrix-creator
-
 function try_program() {
   reset_mcu
   sleep 0.1
 
-  IS_PI1=$(cat /proc/cpuinfo | grep  BCM2708 | wc -l)
-  if [ $IS_PI1 -eq 1 ];then
-    RES=$(openocd -f cfg/sam3s_pi1.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
-  else
-    RES=$(openocd -f cfg/sam3s_pi2_pi3.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
-  fi
+  RES=$(openocd -f cfg/sam3s_rpi_sysfs.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
   echo $RES
+  
+  sleep 0.5
+  reset_mcu  
 }
 
 function check_firmware() {
@@ -100,7 +71,22 @@ function check_firmware() {
 }
 
 
-super_reset 2>/dev/null
+if [[ -f /usr/share/admobilize/matrix-creator/sam3-program.bash.done ]] ; then
+    echo "SAM3 MCU was programmed before. Not programming it again."
+    exit 0
+fi
+
+cd /usr/share/admobilize/matrix-creator
+
+for i in 4 17 18 19 20 22 23 27
+do
+  if [ ! -d /sys/class/gpio/gpio$i ]
+  then
+    echo $i > /sys/class/gpio/export
+  fi
+done
+
+super_reset 
 
 count=0
 while [  $count -lt 30 ]; do
@@ -110,6 +96,7 @@ while [  $count -lt 30 ]; do
         if [ "$CHECK" == "1" ];then
           echo "****  SAM3 MCU programmed!"
           touch /usr/share/admobilize/matrix-creator/sam3-program.bash.done
+          reset_mcu
           exit 0
         fi
    fi
