@@ -1,3 +1,10 @@
+matrix-creator-init (0.2-22) unstable; urgency=medium
+
+  * Uses  sysfs-gpio to program the SAM3.
+  * This makes it work with the last Raspbian image.
+
+ --  <pi@raspberrypi>  Wed, 07 Dec 2016 14:27:37 -0900
+
 matrix-creator-init (0.2-21) unstable; urgency=medium
 
   * Fix for https://github.com/matrix-io/matrix-creator-init/issues/10
