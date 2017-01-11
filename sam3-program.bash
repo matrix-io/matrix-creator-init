@@ -76,7 +76,7 @@ if [[ -f /usr/share/admobilize/matrix-creator/sam3-program.bash.done ]] ; then
     exit 0
 fi
 
-cd /usr/share/admobilize/matrix-creator
+#cd /usr/share/admobilize/matrix-creator
 
 for i in 4 17 18 19 20 22 23 27
 do
