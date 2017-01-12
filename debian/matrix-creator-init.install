@@ -2,6 +2,7 @@ blob usr/share/admobilize/matrix-creator
 cfg usr/share/admobilize/matrix-creator
 sam3-program.bash usr/share/admobilize/matrix-creator
 fpga-program.bash usr/share/admobilize/matrix-creator
+em358-program.bash usr/share/admobilize/matrix-creator
 creator-init.bash usr/share/admobilize/matrix-creator
 radio-init.bash usr/share/admobilize/matrix-creator
 lirc_hardware.conf usr/share/admobilize/matrix-creator
