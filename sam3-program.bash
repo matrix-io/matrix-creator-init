@@ -70,14 +70,6 @@ function check_firmware() {
  fi
 }
 
-
-if [[ -f /usr/share/admobilize/matrix-creator/sam3-program.bash.done ]] ; then
-    echo "SAM3 MCU was programmed before. Not programming it again."
-    exit 0
-fi
-
-#cd /usr/share/admobilize/matrix-creator
-
 for i in 4 17 18 19 20 22 23 27
 do
   if [ ! -d /sys/class/gpio/gpio$i ]
@@ -87,6 +79,14 @@ do
 done
 
 super_reset 
+reset_mcu
+
+CHECK=$(check_firmware)
+if [ "$CHECK" == "1" ]
+then
+  echo "SAM3 MCU was programmed before. Not programming it again."
+  exit 0
+fi
 
 count=0
 while [  $count -lt 30 ]; do
@@ -95,7 +95,6 @@ while [  $count -lt 30 ]; do
         CHECK=$(check_firmware)
         if [ "$CHECK" == "1" ];then
           echo "****  SAM3 MCU programmed!"
-          touch /usr/share/admobilize/matrix-creator/sam3-program.bash.done
           reset_mcu
           exit 0
         fi
