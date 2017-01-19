@@ -19,7 +19,6 @@ cp /usr/share/admobilize/matrix-creator/lirc_hardware.conf /etc/lirc/hardware.co
 lircd=/etc/lirc/lircd.conf
 lircd_matrix=/etc/lirc/lircd.matrix.conf
 include_remotes="include \"$lircd_matrix\""
-
 if [ -e $lircd ] &&  grep --quiet "$include_remotes" $lircd ; then
   echo "LIRC remotes already included"
 else
