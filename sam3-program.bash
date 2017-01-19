@@ -4,7 +4,12 @@ LOG_FILE=/tmp/sam3-program.log
 
 function super_reset()
 {
-  # Set out mode  
+  # gpio19 - EM358 nBOOTMODE (active low)
+  # gpio18 - mcu power
+  # gpio20 - EM_NRST - EM3588 RESET (active low)
+  # gpio23 - EM3588 POWER ENABLE
+
+  # Set out mode
   for j in 18 19 20 23
   do
     echo out > /sys/class/gpio/gpio$j/direction
@@ -15,9 +20,10 @@ function super_reset()
     echo in > /sys/class/gpio/gpio$k/direction
   done
 
-  #Power EM_358 OFF 
-  echo 1 > /sys/class/gpio/gpio18/value
+  # Running the program instead of the bootloader
   echo 1 > /sys/class/gpio/gpio19/value
+
+  echo 1 > /sys/class/gpio/gpio18/value
   echo 1 > /sys/class/gpio/gpio20/value
   echo 0 > /sys/class/gpio/gpio23/value
   sleep 0.5
@@ -27,15 +33,11 @@ function super_reset()
   sleep 0.5
 
   echo 0 > /sys/class/gpio/gpio18/value
-  echo 0 > /sys/class/gpio/gpio19/value
   echo 0 > /sys/class/gpio/gpio20/value
 
   sleep 0.5
   echo 1 > /sys/class/gpio/gpio18/value
   echo 1 > /sys/class/gpio/gpio20/value
-
-  sleep 0.5
-  echo 1 > /sys/class/gpio/gpio19/value
 }
 
 function reset_mcu() {
