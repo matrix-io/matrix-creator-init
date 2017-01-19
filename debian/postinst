@@ -17,11 +17,13 @@ cp /usr/share/admobilize/matrix-creator/lirc_hardware.conf /etc/lirc/hardware.co
 
 # Adding path for MATRIX remotes saved
 lircd=/etc/lirc/lircd.conf
-include_remotes="include /etc/lirc/lircd.matrix.conf"
-if [ -e $lircd ] &&  grep --quiet $include_remotes $lircd ; then
+lircd_matrix=/etc/lirc/lircd.matrix.conf
+include_remotes="include \"$lircd_matrix\""
+
+if [ -e $lircd ] &&  grep --quiet "$include_remotes" $lircd ; then
   echo "LIRC remotes already included"
 else
-  echo "Adding LIRC matrix remotes"
+  echo "adding LIRC matrix remotes"
   echo $include_remotes >> $lircd
 fi
 
