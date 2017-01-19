@@ -15,13 +15,13 @@ echo "Changing LIRC configuration"
 cp -n /etc/lirc/hardware.conf /etc/lirc/hardware.conf.before.creator.init
 cp /usr/share/admobilize/matrix-creator/lirc_hardware.conf /etc/lirc/hardware.conf
 
+# Adding path for MATRIX remotes saved
 lircd=/etc/lirc/lircd.conf
 include_remotes="include /etc/lirc/lircd.matrix.conf"
-
 if [ -e $lircd ] &&  grep --quiet $include_remotes $lircd ; then
   echo "LIRC remotes already included"
 else
-  echo "adding LIRC matrix remotes"
+  echo "Adding LIRC matrix remotes"
   echo $include_remotes >> $lircd
 fi
 
