@@ -9,7 +9,7 @@ function super_reset()
   # gpio20 - EM_NRST - EM3588 RESET (active low)
   # gpio23 - EM3588 POWER ENABLE
 
-  # Set out mode
+  # Set out mode  
   for j in 18 19 20 23
   do
     echo out > /sys/class/gpio/gpio$j/direction
@@ -20,10 +20,9 @@ function super_reset()
     echo in > /sys/class/gpio/gpio$k/direction
   done
 
-  # Running the program instead of the bootloader
-  echo 1 > /sys/class/gpio/gpio19/value
-
+  #Power EM_358 OFF 
   echo 1 > /sys/class/gpio/gpio18/value
+  echo 1 > /sys/class/gpio/gpio19/value
   echo 1 > /sys/class/gpio/gpio20/value
   echo 0 > /sys/class/gpio/gpio23/value
   sleep 0.5
@@ -33,11 +32,15 @@ function super_reset()
   sleep 0.5
 
   echo 0 > /sys/class/gpio/gpio18/value
+  echo 0 > /sys/class/gpio/gpio19/value
   echo 0 > /sys/class/gpio/gpio20/value
 
   sleep 0.5
   echo 1 > /sys/class/gpio/gpio18/value
   echo 1 > /sys/class/gpio/gpio20/value
+
+  sleep 0.5
+  echo 1 > /sys/class/gpio/gpio19/value
 }
 
 function reset_mcu() {
@@ -60,6 +63,13 @@ function try_program() {
   
   sleep 0.5
   reset_mcu  
+}
+
+function enable_program() {
+  echo 1 > /sys/class/gpio/gpio19/value
+  echo 0 > /sys/class/gpio/gpio20/value
+  echo 1 > /sys/class/gpio/gpio20/value
+  echo "Running the program instead of the bootloader" 
 }
 
 function check_firmware() {
@@ -86,6 +96,8 @@ reset_mcu
 CHECK=$(check_firmware)
 if [ "$CHECK" == "1" ]
 then
+  reset_mcu
+  enable_program
   echo "SAM3 MCU was programmed before. Not programming it again."
   exit 0
 fi
