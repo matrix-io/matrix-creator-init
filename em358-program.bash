@@ -56,7 +56,9 @@ function try_program() {
 
 function enable_program() {
   
+  echo 0 > /sys/class/gpio/gpio19/value
   echo 1 > /sys/class/gpio/gpio19/value
+
   echo "Running the program instead of the bootloader" 
 
 }
@@ -72,9 +74,12 @@ done
 check_flash_status
 SUM=$(md5sum /tmp/em358_dump | awk  '{printf $1}')
 
+
 if [ "${CHECKSUM}" = "${SUM}" ]
 then 
+    enable_program
     echo "EM358 MCU was programmed before. Not programming it again."
+    exit 0
 fi
 
 super_reset
