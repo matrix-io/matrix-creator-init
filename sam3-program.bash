@@ -101,7 +101,7 @@ then
   echo "SAM3 MCU was programmed before. Not programming it again."
   exit 0
 fi
-
+enable_program
 count=0
 while [  $count -lt 30 ]; do
   TEST=$(try_program)
@@ -116,5 +116,4 @@ while [  $count -lt 30 ]; do
   let count=count+1
 done
 echo "**** Could not program SAM3 MCU, you must be check the logfile ${LOG_FILE}"
-enable_program
 exit 1
