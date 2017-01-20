@@ -5,6 +5,11 @@ LOG_FILE=/tmp/em358-program.log
 
 function super_reset()
 {
+  # gpio19 - EM358 nBOOTMODE (active low)
+  # gpio18 - mcu power
+  # gpio20 - EM_NRST - EM3588 RESET (active low)
+  # gpio23 - EM3588 POWER ENABLE
+
   # Set out mode  
   for j in 18 19 20 23
   do
@@ -49,6 +54,12 @@ function try_program() {
   echo $RES
 }
 
+function enable_program() {
+  
+  echo 1 > /sys/class/gpio/gpio19/value
+  echo "Running the program instead of the bootloader" 
+
+}
 
 for i in 4 17 18 19 20 22 23 27
 do
@@ -64,7 +75,6 @@ SUM=$(md5sum /tmp/em358_dump | awk  '{printf $1}')
 if [ "${CHECKSUM}" = "${SUM}" ]
 then 
     echo "EM358 MCU was programmed before. Not programming it again."
-    exit 0
 fi
 
 super_reset
@@ -76,10 +86,9 @@ while [  $count -lt 10 ]; do
 
   if [ "$TEST" == "1" ];
   then
-        echo "****  EM358 MCU programmed!"
+	echo "****  EM358 MCU programmed!"
         break
    fi
   let count=count+1
 done
-
-
+enable_program
