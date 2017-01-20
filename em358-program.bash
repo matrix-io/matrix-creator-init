@@ -56,8 +56,9 @@ function try_program() {
 
 function enable_program() {
   
-  echo 0 > /sys/class/gpio/gpio19/value
   echo 1 > /sys/class/gpio/gpio19/value
+  echo 0 > /sys/class/gpio/gpio20/value
+  echo 1 > /sys/class/gpio/gpio20/value
 
   echo "Running the program instead of the bootloader" 
 
@@ -70,6 +71,8 @@ do
     echo $i > /sys/class/gpio/export
   fi
 done
+
+super_reset
 
 check_flash_status
 SUM=$(md5sum /tmp/em358_dump | awk  '{printf $1}')
