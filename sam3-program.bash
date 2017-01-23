@@ -4,6 +4,11 @@ LOG_FILE=/tmp/sam3-program.log
 
 function super_reset()
 {
+  # gpio19 - EM358 nBOOTMODE (active low)
+  # gpio18 - mcu power
+  # gpio20 - EM_NRST - EM3588 RESET (active low)
+  # gpio23 - EM3588 POWER ENABLE
+
   # Set out mode  
   for j in 18 19 20 23
   do
@@ -60,6 +65,13 @@ function try_program() {
   reset_mcu  
 }
 
+function enable_program() {
+  echo 1 > /sys/class/gpio/gpio19/value
+  echo 0 > /sys/class/gpio/gpio20/value
+  echo 1 > /sys/class/gpio/gpio20/value
+  echo "Running the program instead of the bootloader" 
+}
+
 function check_firmware() {
  COMPARE_VERSION=$(diff <(./firmware_info) <(cat mcu_firmware.version)|wc -l)
 
@@ -84,10 +96,12 @@ reset_mcu
 CHECK=$(check_firmware)
 if [ "$CHECK" == "1" ]
 then
+  reset_mcu
+  enable_program
   echo "SAM3 MCU was programmed before. Not programming it again."
   exit 0
 fi
-
+enable_program
 count=0
 while [  $count -lt 30 ]; do
   TEST=$(try_program)
