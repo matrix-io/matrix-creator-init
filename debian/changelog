@@ -1,3 +1,10 @@
+matrix-creator-init (0.2-23) UNRELEASED; urgency=medium
+
+  * Adding Zigbee pre-installation scripts 
+  * LIRC add custom remotes 
+
+ --  <pi@raspberrypi>  Mon, 23 Jan 2017 07:09:29 -0900
+
 matrix-creator-init (0.2-22) unstable; urgency=medium
 
   * Uses  sysfs-gpio to program the SAM3.
