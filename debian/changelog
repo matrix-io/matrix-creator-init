@@ -1,4 +1,4 @@
-matrix-creator-init (0.2-23) UNRELEASED; urgency=medium
+matrix-creator-init (0.2-23) unstable; urgency=medium
 
   * Adding Zigbee pre-installation scripts 
   * LIRC add custom remotes 
