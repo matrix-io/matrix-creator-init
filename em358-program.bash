@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHECKSUM=3891e75fae4509ce520a25d6725520db
+CHECKSUM=d9dd7b84f311ca80a83d42f546f179e4
 LOG_FILE=/tmp/em358-program.log
 
 function super_reset()
