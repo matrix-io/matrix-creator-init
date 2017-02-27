@@ -1,3 +1,9 @@
+matrix-creator-init (0.3.0) unstable; urgency=medium
+
+  * Read process for EM358 has been updated.
+
+ --  <pi@noobpi>  Mon, 27 Feb 2017 16:11:53 +0000
+
 matrix-creator-init (0.2-23) unstable; urgency=medium
 
   * Adding Zigbee pre-installation scripts 
