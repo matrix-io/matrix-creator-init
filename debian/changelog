@@ -1,3 +1,9 @@
+matrix-creator-init (0.3.2) unstable; urgency=medium
+
+  * LIRC has been removed
+
+ --  Andres Calderon <andres.calderon@admobilize.com>  Thu, 31 Aug 2017 13:11:16 +0000
+
 matrix-creator-init (0.3.1) unstable; urgency=medium
 
   * Fixing Unstable behavior in SAM3S

@@ -8,25 +8,10 @@ systemctl enable matrix-creator-firmware
 # echo "Loading firmware..."
 # service matrix-creator-firmware start
 
-echo "Enabling IR and SPI"
+echo "Enabling SPI"
 cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
 
 echo "Disable UART console"
 /usr/share/admobilize/matrix-creator/admobilize_remove_console.py
-
-echo "Changing LIRC configuration"
-cp -n /etc/lirc/hardware.conf /etc/lirc/hardware.conf.before.creator.init
-cp /usr/share/admobilize/matrix-creator/lirc_hardware.conf /etc/lirc/hardware.conf
-
-# Adding path for MATRIX remotes saved
-lircd=/etc/lirc/lircd.conf
-lircd_matrix=/etc/lirc/lircd.matrix.conf
-include_remotes="include \"$lircd_matrix\""
-if [ -e $lircd ] &&  grep --quiet "$include_remotes" $lircd ; then
-  echo "LIRC remotes already included"
-else
-  echo "adding LIRC matrix remotes"
-  echo $include_remotes >> $lircd
-fi
 
 echo "Please restart your Raspberry Pi after installation"
