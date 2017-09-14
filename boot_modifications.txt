@@ -4,3 +4,4 @@ dtparam=gpio_in_pull=down
 dtparam=spi=on
 start_x=1
 enable_uart=1
+dtoverlay=spi0-cs,cs1_pin=12
