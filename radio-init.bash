@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in 5 13 21
+for i in 21 16
 do
   if [ ! -d /sys/class/gpio/gpio$i ]
   then
@@ -9,6 +9,5 @@ do
   fi
 done
 
-echo 1 > /sys/class/gpio/gpio5/value
-echo 0 > /sys/class/gpio/gpio13/value
-echo 0 > /sys/class/gpio/gpio21/value
+echo 0 > /sys/class/gpio/gpio16/value
+echo 1 > /sys/class/gpio/gpio21/value
