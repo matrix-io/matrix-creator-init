@@ -8,6 +8,6 @@ Homepage: https://github.com/matrix-io/matrix-creator-start-services
 
 Package: matrix-creator-init
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, matrix-creator-openocd, wiringpi, xc3sprog
+Depends: ${shlibs:Depends}, ${misc:Depends}, matrixio-openocd, wiringpi, matrixio-xc3sprog
 Description: Install scripts that can program the MATRIX Creator FPGA and SAM3 IMU.
  Install scripts that can program the MATRIX Creator FPGA and SAM3 IMU.
