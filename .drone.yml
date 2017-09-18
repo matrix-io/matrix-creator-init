@@ -8,6 +8,7 @@ pipeline:
     mountoffset: ${MOUNTOFFSET}
     body: |
       apt-get update
+      apt-get install --yes libfftw3-dev
       debuild -us -uc -b
       mv ../*.deb .
 
