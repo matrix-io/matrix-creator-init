@@ -1,6 +1,6 @@
 matrixio-creator-init (0.3.3) unstable; urgency=medium
 
-  * Microphone Array different sampling frequency support has been added.
+  * Multiple frequency support in micarray has been supported.
   * Support NFC Hardware layer has been added
   * Zwave setup in ttyS0
   * Remove LIRC support 
