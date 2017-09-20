@@ -1,131 +1,131 @@
-matrix-creator-init (0.3.3) unstable; urgency=medium
+matrixio-creator-init (0.3.3) unstable; urgency=medium
 
-  * Microphone Array different sampling frequency support has been added.
+  * Multiple frequency support in micarray has been supported.
   * Support NFC Hardware layer has been added
   * Zwave setup in ttyS0
   * Remove LIRC support 
 
  --  Kevin Patino <kevin.patino@admobilize.com>  Fri, 15 Sep 2017 19:26:10 +0000
 
-matrix-creator-init (0.3.2) unstable; urgency=medium
+matrixio-creator-init (0.3.2) unstable; urgency=medium
 
   * LIRC has been removed
 
  --  Andres Calderon <andres.calderon@admobilize.com>  Thu, 31 Aug 2017 13:11:16 +0000
 
-matrix-creator-init (0.3.1) unstable; urgency=medium
+matrixio-creator-init (0.3.1) unstable; urgency=medium
 
   * Fixing Unstable behavior in SAM3S
 
  --  Kevin Patino <kevin.patino@admobilize.com>  Wed, 30 Aug 2017 21:37:36 +0000
 
-matrix-creator-init (0.3.0) unstable; urgency=medium
+matrixio-creator-init (0.3.0) unstable; urgency=medium
 
   * Read process for EM358 has been updated.
 
  -- Kevin Patino <kevin.patino@admobilize.com>  Mon, 27 Feb 2017 16:11:53 +0000
 
-matrix-creator-init (0.2-23) unstable; urgency=medium
+matrixio-creator-init (0.2-23) unstable; urgency=medium
 
   * Adding Zigbee pre-installation scripts 
   * LIRC add custom remotes 
 
  --  <pi@raspberrypi>  Mon, 23 Jan 2017 07:09:29 -0900
 
-matrix-creator-init (0.2-22) unstable; urgency=medium
+matrixio-creator-init (0.2-22) unstable; urgency=medium
 
   * Uses  sysfs-gpio to program the SAM3.
   * This makes it work with the last Raspbian image.
 
  --  <pi@raspberrypi>  Wed, 07 Dec 2016 14:27:37 -0900
 
-matrix-creator-init (0.2-21) unstable; urgency=medium
+matrixio-creator-init (0.2-21) unstable; urgency=medium
 
   * Fix for https://github.com/matrix-io/matrix-creator-init/issues/10
 
  --  <pi@raspberrypi>  Fri, 14 Oct 2016 10:51:43 -0800
 
-matrix-creator-init (0.2-20) unstable; urgency=medium
+matrixio-creator-init (0.2-20) unstable; urgency=medium
 
   * Add raspicam.conf to etc/modules-load.d.
 
  --  <pi@raspberrypi>  Fri, 14 Oct 2016 10:51:43 -0800
 
-matrix-creator-init (0.2-19) unstable; urgency=medium
+matrixio-creator-init (0.2-19) unstable; urgency=medium
 
   * Enable camera and initialize on boot.
 
  --  <pi@raspberrypi>  Fri, 14 Oct 2016 09:25:48 -0800
 
-matrix-creator-init (0.2-18) unstable; urgency=medium
+matrixio-creator-init (0.2-18) unstable; urgency=medium
 
   * Update module ordering (insert order).
 
  --  <pi@raspberrypi>  Tue, 04 Oct 2016 11:35:37 -0800
 
-matrix-creator-init (0.2-17) unstable; urgency=medium
+matrixio-creator-init (0.2-17) unstable; urgency=medium
 
   Update firmware. Enable ALSA for mic array.
 
  --  <pi@raspberrypi>  Tue, 04 Oct 2016 08:14:04 -0800
 
-matrix-creator-init (0.2-14) unstable; urgency=medium
+matrixio-creator-init (0.2-14) unstable; urgency=medium
 
   * Paranoid reset. Make users happy again.
 
  --  <pi@raspberrypi>  Wed, 14 Sep 2016 13:36:02 -0800
 
-matrix-creator-init (0.2-13) unstable; urgency=medium
+matrixio-creator-init (0.2-13) unstable; urgency=medium
 
   * Bump version after Raspberry Pi B+ support.
 
  --  <pi@raspberrypi>  Tue, 30 Aug 2016 16:07:04 -0800
 
-matrix-creator-init (0.2-12) unstable; urgency=medium
+matrixio-creator-init (0.2-12) unstable; urgency=medium
 
   * Firmware was updated. Bump version.
 
  --  <pi@raspberrypi>  Mon, 29 Aug 2016 09:19:42 -0800
 
-matrix-creator-init (0.2-11) unstable; urgency=medium
+matrixio-creator-init (0.2-11) unstable; urgency=medium
 
   * Firmware was updated. Bump version.
 
  --  <pi@raspberrypi>  Thu, 25 Aug 2016 15:36:39 -0800
 
-matrix-creator-init (0.2-10) unstable; urgency=medium
+matrixio-creator-init (0.2-10) unstable; urgency=medium
 
   * Firmware update.
   * 0d8e4cf0af0029203ea50b49ab26ec0e  system.bit
 
  --  <pi@raspberrypi>  Fri, 12 Aug 2016 14:00:58 -0800
 
-matrix-creator-init (0.2-9) unstable; urgency=medium
+matrixio-creator-init (0.2-9) unstable; urgency=medium
 
   * Just bump version.
 
  --  <pi@raspberrypi>  Tue, 09 Aug 2016 13:38:02 -0800
 
-matrix-creator-init (0.2-8) unstable; urgency=medium
+matrixio-creator-init (0.2-8) unstable; urgency=medium
 
   Reset MCU even if it doesn't need to be programmed.
 
  --  <pi@raspberrypi>  Tue, 09 Aug 2016 13:09:04 -0800
 
-matrix-creator-init (0.2-7) unstable; urgency=medium
+matrixio-creator-init (0.2-7) unstable; urgency=medium
 
 
   Update blobs.
 
  --  <pi@raspberrypi>  Tue, 09 Aug 2016 10:12:47 -0800
 
-matrix-creator-init (0.2-6) unstable; urgency=medium
+matrixio-creator-init (0.2-6) unstable; urgency=medium
 
   687c067075a4ab223885db916616a0ae system.bit
 
  --  <pi@raspberrypi>  Mon, 01 Aug 2016 12:27:35 -0800
 
-matrix-creator-init (0.2-5) unstable; urgency=low
+matrixio-creator-init (0.2-5) unstable; urgency=low
 
   Firmware update.
 
@@ -134,32 +134,32 @@ matrix-creator-init (0.2-5) unstable; urgency=low
 
  -- Admobilize <info@admobilize.com>  Tue, 27 Jul 2016 15:13:28 -0800
 
-matrix-creator-init (0.2-4) unstable; urgency=low
+matrixio-creator-init (0.2-4) unstable; urgency=low
 
   * Only program the MCU once to save write cycles.
 
  -- Admobilize <info@admobilize.com>  Tue, 26 Jul 2016 15:13:28 -0800
 
 
-matrix-creator-init (0.2-3) unstable; urgency=low
+matrixio-creator-init (0.2-3) unstable; urgency=low
 
   * Update lirc config.
 
  -- Admobilize <info@admobilize.com>  Tue, 26 Jul 2016 15:13:28 -0800
 
-matrix-creator-init (0.2-2) unstable; urgency=low
+matrixio-creator-init (0.2-2) unstable; urgency=low
 
   * Depend on lirc.
 
  -- Admobilize <info@admobilize.com>  Tue, 26 Jul 2016 15:13:28 -0800
 
-matrix-creator-init (0.2-1) unstable; urgency=low
+matrixio-creator-init (0.2-1) unstable; urgency=low
 
   * Add rules to inable IR.
 
  -- Admobilize <info@admobilize.com>  Mon, 18 Jul 2016 15:13:28 -0800
 
-matrix-creator-init (0.1-1) unstable; urgency=low
+matrixio-creator-init (0.1-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 

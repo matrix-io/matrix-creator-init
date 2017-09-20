@@ -1,13 +1,13 @@
-Source: matrix-creator-init
+Source: matrixio-creator-init
 Section: embedded
 Priority: optional
 Maintainer: Admobilize <info@admobilize.com>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.5
-Homepage: https://github.com/matrix-io/matrix-creator-start-services
+Homepage: https://github.com/matrix-io/matrix-creator-init
 
-Package: matrix-creator-init
+Package: matrixio-creator-init
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, matrix-creator-openocd, wiringpi, xc3sprog
+Depends: ${shlibs:Depends}, ${misc:Depends}, matrixio-openocd, wiringpi, matrixio-xc3sprog
 Description: Install scripts that can program the MATRIX Creator FPGA and SAM3 IMU.
  Install scripts that can program the MATRIX Creator FPGA and SAM3 IMU.
