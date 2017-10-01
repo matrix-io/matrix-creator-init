@@ -7,6 +7,8 @@ Standards-Version: 3.9.5
 Homepage: https://github.com/matrix-io/matrix-creator-init
 
 Package: matrixio-creator-init
+Conflicts: matrix-creator-init
+Replaces: matrix-creator-init
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, matrixio-openocd, wiringpi, matrixio-xc3sprog
 Description: Install scripts that can program the MATRIX Creator FPGA and SAM3 IMU.
