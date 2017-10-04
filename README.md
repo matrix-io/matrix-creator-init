@@ -1,5 +1,6 @@
 
-# Installation
+# matrix-creator-start-services
+## Installation
 ```
 # Add repo and key
 curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
@@ -13,10 +14,10 @@ sudo apt-get upgrade
 sudo apt install matrixio-creator-init
 ```
 
-# matrix-creator-start-services
+## matrix-creator-start-services
 ![Build Status](https://drone.matrix.one/api/badges/matrix-io/matrix-creator-init/status.svg)
 
 Source for the matrix-creator-init Debian package. This package programs the FPGA and the SAM3 MCU when the system starts.
 
-### Documentation
+## Documentation
 https://matrix-io.github.io/matrix-documentation
