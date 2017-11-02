@@ -1,20 +1,25 @@
 pipeline:
   build-debs:
     when:
-      event: tag
+      branch: master
+      event: [ push, pull_request, tag ]
     image: gcr.io/admobilize-testing/builder-qemu:latest
     privileged: true
     mountimg: ${MOUNTIMG}
     mountoffset: ${MOUNTOFFSET}
     body: |
+      curl https://apt.matrix.one/doc/apt-key.gpg | apt-key add -
+      export COMPONENT=$([ "${DRONE_BUILD_EVENT}" = "tag" ] && echo "main" || echo "unstable")
+      echo "deb https://apt.matrix.one/raspbian ${CODENAME} $COMPONENT" > /etc/apt/sources.list.d/matrixlabs.list
       apt-get update
-      apt-get install --yes libfftw3-dev
+      apt-get install --yes libfftw3-dev libmatrixio-creator-hal-dev
       debuild -us -uc -b
       mv ../*.deb .
 
   upload-debs:
     when:
-      event: tag
+      branch: master
+      event: [ push, pull_request, tag ]
     image: gcr.io/admobilize-testing/gce-builder:latest
     secrets: [aws_access_key_id, aws_secret_access_key, gpg_key, gpg_pass]
     commands:
@@ -22,9 +27,13 @@ pipeline:
       - echo "$${GPG_KEY}" > /tmp/tmpkey && gpg --import /tmp/tmpkey && rm /tmp/tmpkey
       - echo "personal-digest-preferences SHA512" >> /root/.gnupg/gpg.conf
 
+      # Only TAG events are published to main
+      - export COMPONENT=$([ "${DRONE_BUILD_EVENT}" = "tag" ] && echo "main" || echo "unstable")
+      - export PKG_VER=$(dpkg-parsechangelog --show-field Version -ldebian/changelog)
+
       # Upload packages
-      - mv matrixio-creator-init_${DRONE_TAG##v}_armhf.deb 
-           matrixio-creator-init_${DISTRIBUTION}-${CODENAME}-${DRONE_TAG##v}_armhf.deb
+      - mv matrixio-creator-init_$${PKG_VER}_armhf.deb 
+           matrixio-creator-init_${DISTRIBUTION}-${CODENAME}-$${PKG_VER}_armhf.deb
 
       - echo "$${GPG_PASS}" | deb-s3 upload --bucket apt.matrix.one 
         --prefix $DISTRIBUTION
@@ -33,7 +42,10 @@ pipeline:
         --secret-access-key $${AWS_SECRET_ACCESS_KEY}
         --sign info@matrix.one 
         --gpg-options="--batch --passphrase-fd 0"
-        matrixio-creator-init_${DISTRIBUTION}-${CODENAME}-${DRONE_TAG##v}_armhf.deb
+        matrixio-creator-init_${DISTRIBUTION}-${CODENAME}-$${PKG_VER}_armhf.deb
+
+      # Render the notification template for the notify-slack step
+      - j2 --var-delimiter '%%' .drone/slack.tpl > notification.tpl
 
   notify-always:
     image: plugins/slack
@@ -42,29 +54,19 @@ pipeline:
     channel: notifications
     when:
       status: [ success, failure ]
-      event: tag 
-    template: |
-      {{#success build.status}}
-        {{build.author}} just built `{{repo.name}}:{{build.branch}}` from <${DRONE_COMMIT_LINK}|#{{truncate build.commit 8}}>
-        :new: {{build.message}}
-        :debian: The new `matrixio-creator_init_${DISTRIBUTION}-${CODENAME}-${DRONE_TAG##v}_armhf.deb` was published to apt.matrix.one
-      {{else}}
-        {{build.author}} just broke the build of `{{repo.name}}:{{build.branch}}` with <${DRONE_COMMIT_LINK}|#{{truncate build.commit 8}}>
-        :new: :zombie: {{build.message}}
-        :debian: The package `matrixio-creator_init_${DISTRIBUTION}-${CODENAME}-${DRONE_TAG##v}_armhf.deb` failed to build.
-      {{/success}}
-      :stopwatch: {{ since build.started}}
-      :gear: {{build.link}}
+      branch: master
+      event: [ push, pull_request, tag ]
+      template: file:///drone/src/github.com/matrix-io/matrix-creator-init/notification.tpl
 
 matrix:
   include: 
     - CODENAME: jessie
       DISTRIBUTION: raspbian
       MOUNTOFFSET: 48234496
-      MOUNTDIR: /drone/src/bitbucket.org/admobilize/matrix-creator-init
+      MOUNTDIR: /drone/src/github.com/matrix-io/matrix-creator-init
       MOUNTIMG: https://storage.googleapis.com/raspbian-images/2017-07-05-raspbian-jessie-debuild.img.gz
     - CODENAME: stretch
       MOUNTOFFSET: 48234496
-      MOUNTDIR: /drone/src/bitbucket.org/admobilize/matrix-creator-init
+      MOUNTDIR: /drone/src/github.com/matrix-io/matrix-creator-init
       DISTRIBUTION: raspbian
       MOUNTIMG: https://storage.googleapis.com/raspbian-images/2017-08-16-raspbian-stretch-debuild.img.gz
