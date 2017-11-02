@@ -56,7 +56,7 @@ pipeline:
       status: [ success, failure ]
       branch: master
       event: [ push, pull_request, tag ]
-      template: file:///drone/src/github.com/matrix-io/matrix-creator-init/notification.tpl
+    template: file:///drone/src/github.com/matrix-io/matrix-creator-init/notification.tpl
 
 matrix:
   include: 
