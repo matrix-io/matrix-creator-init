@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Disable firmware loading at startup"
-systemctl disable matrix-creator-firmware
+systemctl disable matrixio-creator-firmware
