@@ -1,3 +1,9 @@
+matrixio-creator-init (0.3.4) unstable; urgency=medium
+
+  * Adding WDT in MCU firmware 
+
+ --  Kevin Patino <kevin.patino@admobilize.com>  Fri, 22 Nov 2017 17:24:00 +0000
+
 matrixio-creator-init (0.3.3) unstable; urgency=medium
 
   * Multiple frequency support in micarray has been supported.
