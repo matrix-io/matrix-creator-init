@@ -1,7 +1,7 @@
 matrixio-creator-init (0.3.4) unstable; urgency=medium
 
   * Adding WDT in MCU firmware
-  * Improve UART implmentation inf FPGA core
+  * Improve UART implementation inf FPGA core
 
  --  Kevin Patino <kevin.patino@admobilize.com>  Fri, 22 Nov 2017 17:24:00 +0000
 
