@@ -20,4 +20,9 @@ add_executable(firmware_info firmware_info.cpp)
   target_link_libraries(firmware_info ${HAL_LIB})
   target_link_libraries(firmware_info ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(fpga_info fpga_info.cpp)
+  set_property(TARGET fpga_info PROPERTY CXX_STANDARD 11)
+  target_link_libraries(fpga_info ${HAL_LIB})
+  target_link_libraries(fpga_info ${CMAKE_THREAD_LIBS_INIT})
+
 
