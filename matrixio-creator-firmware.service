@@ -3,7 +3,7 @@ Description=MATRIX start up serivce (MATRIX Voice - MATRIX Creator)
 
 [Service]
 Type=oneshot
-ExecStart=/usr/share/admobilize/matrix-creator/matrix-init.bash
+ExecStart=/usr/share/admobilize/matrixio-devices/matrix-init.bash
 
 [Install]
 WantedBy=multi-user.target
