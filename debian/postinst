@@ -9,7 +9,7 @@ systemctl enable matrixio-devices-firmware
 # service matrixio-devices-firmware start
 
 echo "Enabling SPI"
-cp /boot/config.txt /boot/config.txt.bk && /usr/share/matrixlabs/matrixio-devices/matrixlabs_edit_setting.py /boot/config.txt.bk /usr/share/matrixlabs/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
+cp /boot/config.txt /boot/config.txt.bk && /usr/share/matrixlabs/matrixio-devices/matrixlabs_edit_settings.py /boot/config.txt.bk /usr/share/matrixlabs/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
 
 echo "Disable UART console"
 /usr/share/matrixlabs/matrixio-devices/matrixlabs_remove_console.py

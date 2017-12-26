@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir /usr/share/matrixlabs/matrixio-devices
-cp -avr blob cfg sam3-program.bash fpga-program.bash em358-program.bash creator-init.bash radio-init.bash firmware_info mcu_firmware.version matrixlabs_edit_setting.py matrixlabs_remove_console.py 
+cp -avr blob cfg sam3-program.bash fpga-program.bash em358-program.bash creator-init.bash radio-init.bash firmware_info mcu_firmware.version matrixlabs_edit_settings.py matrixlabs_remove_console.py 
 
 mkdir /usr/share/matrixlabs/matrixio-devices/config
 cp -avr boot_modifications.txt /usr/share/matrixlabs/matrixio-devices/config
@@ -21,7 +21,7 @@ systemctl enable matrix-creator-firmware
 # service matrix-creator-firmware start
 
 echo "Enabling SPI"
-cp /boot/config.txt /boot/config.txt.bk && /usr/share/matrixlabs/matrixio-devices/matrixlabs_edit_setting.py /boot/config.txt.bk /usr/share/matrixlabs/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
+cp /boot/config.txt /boot/config.txt.bk && /usr/share/matrixlabs/matrixio-devices/matrixlabs_edit_settings.py /boot/config.txt.bk /usr/share/matrixlabs/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
 
 echo "Disable UART console"
 /usr/share/matrixlabs/matrixio-devices/matrixlabs_remove_console.py
