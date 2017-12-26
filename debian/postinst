@@ -12,6 +12,6 @@ echo "Enabling SPI"
 cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
 
 echo "Disable UART console"
-/usr/share/admobilize/matrix-creator/admobilize_remove_console.py
+/usr/share/admobilize/matrixio-devices/admobilize_remove_console.py
 
 echo "Please restart your Raspberry Pi after installation"
