@@ -21,7 +21,7 @@ function reset_creator(){
 function try_program_creator() {
   reset_creator
   sleep 0.1
-  xc3sprog -c matrix_creator blob/system.bit -p 1 > /dev/null 2> /dev/null
+  xc3sprog -c matrix_creator blob/system_creator.bit -p 1 > /dev/null 2> /dev/null
 }
 
 function try_program_voice() {

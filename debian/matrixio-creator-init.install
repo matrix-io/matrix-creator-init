@@ -3,7 +3,7 @@ cfg usr/share/admobilize/matrix-creator
 sam3-program.bash usr/share/admobilize/matrix-creator
 fpga-program.bash usr/share/admobilize/matrix-creator
 em358-program.bash usr/share/admobilize/matrix-creator
-creator-init.bash usr/share/admobilize/matrix-creator
+matrix-init.bash usr/share/admobilize/matrix-creator
 radio-init.bash usr/share/admobilize/matrix-creator
 obj-arm-linux-gnueabihf/cpp/firmware_info usr/share/admobilize/matrix-creator
 obj-arm-linux-gnueabihf/cpp/fpga_info usr/share/admobilize/matrix-creator
