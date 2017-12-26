@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /usr/share/admobilize/matrix-creator
+cd /usr/share/admobilize/matrixio-devices
 
 function detect_device(){
   MATRIX_DEVICE=$(./fpga_info | grep IDENTIFY | cut -f 3 -d ' ')
