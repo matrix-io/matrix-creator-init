@@ -11,7 +11,7 @@ mcu_firmware.version usr/share/admobilize/matrixio-devices
 boot_modifications.txt usr/share/admobilize/matrixio-devices/config
 admobilize_edit_setting.py usr/share/admobilize/matrixio-devices
 admobilize_remove_console.py usr/share/admobilize/matrixio-devices
-matrixio-creator-firmware.service lib/systemd/system
+matrixio-devices-firmware.service lib/systemd/system
 matrix-creator-reset-jtag usr/bin
 matrix-mics.conf etc/modules-load.d
 raspicam.conf etc/modules-load.d
