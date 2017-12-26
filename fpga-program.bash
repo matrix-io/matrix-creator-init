@@ -52,6 +52,7 @@ while [  $count -lt 5 ]; do
   try_program_creator
   if [ $? -eq 0 ];then
         echo "**** MATRIX Creator FPGA has been programmed!"
+	./fpga_info
         exit 0
    fi
   let count=count+1

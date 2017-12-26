@@ -10,7 +10,7 @@ function detect_device(){
 detect_device
 
 case "${MATRIX_DEVICE}" in
-  "05c344e8")  
+  "5c344e8")  
      echo "*** MATRIX Creator initial process has been launched"
     ./em358-program.bash
     ./radio-init.bash
