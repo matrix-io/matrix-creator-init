@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mkdir /usr/share/matrixlabs/matrixio-devices
-cp -avr blob cfg sam3-program.bash fpga-program.bash em358-program.bash creator-init.bash radio-init.bash firmware_info mcu_firmware.version admobilize_edit_setting.py admobilize_remove_console.py 
+cp -avr blob cfg sam3-program.bash fpga-program.bash em358-program.bash creator-init.bash radio-init.bash firmware_info mcu_firmware.version matrixlabs_edit_setting.py matrixlabs_remove_console.py 
 
 mkdir /usr/share/matrixlabs/matrixio-devices/config
 cp -avr boot_modifications.txt /usr/share/matrixlabs/matrixio-devices/config
