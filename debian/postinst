@@ -6,7 +6,7 @@ systemctl enable matrixio-devices-firmware
 # This didn't work due to an unresolved shared library.
 # Asking users to reboot after installation.
 # echo "Loading firmware..."
-# service matrixio-creator-firmware start
+# service matrixio-devices-firmware start
 
 echo "Enabling SPI"
 cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrixio-devices/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
