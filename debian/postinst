@@ -9,7 +9,7 @@ systemctl enable matrixio-creator-firmware
 # service matrixio-creator-firmware start
 
 echo "Enabling SPI"
-cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
+cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrixio-devices/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
 
 echo "Disable UART console"
 /usr/share/admobilize/matrixio-devices/admobilize_remove_console.py
