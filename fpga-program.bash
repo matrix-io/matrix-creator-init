@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#cd /usr/share/admobilize/matrix-creator
+cd /usr/share/admobilize/matrix-creator
 
 function reset_voice(){
   echo 26 > /sys/class/gpio/export 2>/dev/null
