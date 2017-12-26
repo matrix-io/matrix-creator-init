@@ -3,7 +3,7 @@
 echo "Disable firmware loading at startup"
 systemctl disable matrix-creator-firmware
 
-rm -rf /usr/share/admobilize/matrixio-devices
+rm -rf /usr/share/matrixlabs/matrixio-devices
 
 rm -rf /lib/systemd/system/matrixio-devices-firmware.service
 rm -rf /usr/bin/matrix-creator-reset-jtag

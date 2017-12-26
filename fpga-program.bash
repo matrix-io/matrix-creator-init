@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /usr/share/admobilize/matrixio-devices
+cd /usr/share/matrixlabs/matrixio-devices
 
 function reset_voice(){
   echo 26 > /sys/class/gpio/export 2>/dev/null
