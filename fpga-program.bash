@@ -4,10 +4,10 @@ cd /usr/share/matrixlabs/matrixio-devices
 
 function reset_voice(){
   echo 26 > /sys/class/gpio/export 2>/dev/null
-  echo out > /sys/class/gpio/gpio18/direction
-  echo 1 > /sys/class/gpio/gpio18/value
-  echo 0 > /sys/class/gpio/gpio18/value
-  echo 1 > /sys/class/gpio/gpio18/value 
+  echo out > /sys/class/gpio/gpio26/direction
+  echo 1 > /sys/class/gpio/gpio26/value
+  echo 0 > /sys/class/gpio/gpio26/value
+  echo 1 > /sys/class/gpio/gpio26/value 
 }
 
 function reset_creator(){
@@ -28,7 +28,6 @@ function try_program_voice() {
   reset_voice
   sleep 0.1
   xc3sprog -c matrix_voice blob/bscan_spi_s6lx9_ftg256.bit > /dev/null 2> /dev/null
-  reset_voice
   sleep 0.1
   xc3sprog -c matrix_voice -I blob/system_voice.bit > /dev/null 2> /dev/null
 }
