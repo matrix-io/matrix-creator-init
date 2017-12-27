@@ -11,6 +11,7 @@ mcu_firmware.version usr/share/matrixlabs/matrixio-devices
 boot_modifications.txt usr/share/matrixlabs/matrixio-devices/config
 matrixlabs_edit_settings.py usr/share/matrixlabs/matrixio-devices
 matrixlabs_remove_console.py usr/share/matrixlabs/matrixio-devices
+voice.version usr/share/matrixlabs/matrixio-devices
 matrixio-devices-firmware.service lib/systemd/system
 matrix-creator-reset-jtag usr/bin
 matrix-mics.conf etc/modules-load.d

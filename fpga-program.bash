@@ -39,7 +39,7 @@ while [  $count -lt 5 ]; do
   try_program_voice
   if [ $? -eq 0 ];then
         echo "****  MATRIX Voice FPGA Software has been updated!"
-	reset_fpga
+	reset_voice
         exit 0
    fi
   let count=count+1
