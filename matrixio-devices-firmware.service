@@ -1,5 +1,5 @@
 [Unit]
-Description=MATRIX start up serivce (MATRIX Voice - MATRIX Creator)
+Description=MATRIX start up service (MATRIX Voice - MATRIX Creator)
 
 [Service]
 Type=oneshot
