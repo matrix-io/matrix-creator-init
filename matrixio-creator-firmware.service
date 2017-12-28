@@ -1,9 +1,0 @@
-[Unit]
-Description=Program FPGA and SAM3 MCU
-
-[Service]
-Type=oneshot
-ExecStart=/usr/share/admobilize/matrix-creator/creator-init.bash
-
-[Install]
-WantedBy=multi-user.target

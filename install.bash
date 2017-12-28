@@ -1,10 +1,10 @@
 #!/bin/bash
 
-mkdir /usr/share/admobilize/matrix-creator
-cp -avr blob cfg sam3-program.bash fpga-program.bash em358-program.bash creator-init.bash radio-init.bash firmware_info mcu_firmware.version admobilize_edit_setting.py admobilize_remove_console.py 
+mkdir /usr/share/matrixlabs/matrixio-devices
+cp -avr blob cfg sam3-program.bash fpga-program.bash em358-program.bash creator-init.bash radio-init.bash firmware_info mcu_firmware.version matrixlabs_edit_settings.py matrixlabs_remove_console.py 
 
-mkdir /usr/share/admobilize/matrix-creator/config
-cp -avr boot_modifications.txt /usr/share/admobilize/matrix-creator/config
+mkdir /usr/share/matrixlabs/matrixio-devices/config
+cp -avr boot_modifications.txt /usr/share/matrixlabs/matrixio-devices/config
 
 cp -avr matrix-creator-firmware.service /lib/systemd/system
 cp -avr matrix-creator-reset-jtag /usr/bin
@@ -21,9 +21,9 @@ systemctl enable matrix-creator-firmware
 # service matrix-creator-firmware start
 
 echo "Enabling SPI"
-cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
+cp /boot/config.txt /boot/config.txt.bk && /usr/share/matrixlabs/matrixio-devices/matrixlabs_edit_settings.py /boot/config.txt.bk /usr/share/matrixlabs/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
 
 echo "Disable UART console"
-/usr/share/admobilize/matrix-creator/admobilize_remove_console.py
+/usr/share/matrixlabs/matrixio-devices/matrixlabs_remove_console.py
 
 echo "Please restart your Raspberry Pi after installation"

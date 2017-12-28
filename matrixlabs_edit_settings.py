@@ -47,7 +47,7 @@ for original in ORIGINAL_LINES:
             print '# previous value for {} was {}.'.format(key,
                                                            value,
                                                            new_value),
-            print 'Changed by admobilize_edit_settings.py'
+            print 'Changed by matrixlabs_edit_settings.py'
             print '{}={}'.format(key, new_value)
             del  KEYS_TO_CHANGE[key]
         elif key in KEYS_TO_CHANGE and KEYS_TO_CHANGE[key] == value:
@@ -57,7 +57,7 @@ for original in ORIGINAL_LINES:
             print original[1]
 
 if len(KEYS_TO_CHANGE):
-    print '# Lines added by admobilize_edit_settings.py.'
+    print '# Lines added by matrixlabs_edit_settings.py.'
     print '# Commented definitions of the settings might be above.'
 
 for key  in sorted(KEYS_TO_CHANGE):

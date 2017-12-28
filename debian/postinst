@@ -1,17 +1,17 @@
 #!/bin/bash -e
 
 echo "Enabling firmware loading at startup"
-systemctl enable matrixio-creator-firmware
+systemctl enable matrixio-devices-firmware
 
 # This didn't work due to an unresolved shared library.
 # Asking users to reboot after installation.
 # echo "Loading firmware..."
-# service matrixio-creator-firmware start
+# service matrixio-devices-firmware start
 
 echo "Enabling SPI"
-cp /boot/config.txt /boot/config.txt.bk && /usr/share/admobilize/matrix-creator/admobilize_edit_setting.py /boot/config.txt.bk /usr/share/admobilize/matrix-creator/config/boot_modifications.txt > /boot/config.txt
+cp /boot/config.txt /boot/config.txt.bk && /usr/share/matrixlabs/matrixio-devices/matrixlabs_edit_settings.py /boot/config.txt.bk /usr/share/matrixlabs/matrixio-devices/config/boot_modifications.txt > /boot/config.txt
 
 echo "Disable UART console"
-/usr/share/admobilize/matrix-creator/admobilize_remove_console.py
+/usr/share/matrixlabs/matrixio-devices/matrixlabs_remove_console.py
 
 echo "Please restart your Raspberry Pi after installation"
