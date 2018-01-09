@@ -5,17 +5,17 @@ function voice_esp32_enable()
 	echo 25 > /sys/class/gpio/export 2> /dev/null
 	echo 24 > /sys/class/gpio/export 2> /dev/null
 
-	echo out > /sys/class/gpio/gpio25/direction
-	echo out > /sys/class/gpio/gpio24/direction
+	echo out > /sys/class/gpio/gpio25/direction # ESP_EN
+	echo out > /sys/class/gpio/gpio24/direction # ESP EN_PROG
 
 	for i in `seq 50`; do
-		sleep 0.5
-		echo 1 > /sys/class/gpio/gpio25/value
-		echo 1 > /sys/class/gpio/gpio24/value
-		echo 1 > /sys/class/gpio/gpio25/value
-		echo 0 > /sys/class/gpio/gpio24/value
-		echo 1 > /sys/class/gpio/gpio25/value
-		echo 1 > /sys/class/gpio/gpio24/value
+  	echo 1 > /sys/class/gpio/gpio25/value
+  	#The ESP32 will enter the serial bootloader when ESP_EN_PROG is held low on reset.
+  	echo 0 > /sys/class/gpio/gpio24/value
+  	echo 0 > /sys/class/gpio/gpio25/value
+  	echo 0 > /sys/class/gpio/gpio24/value
+  	echo 1 > /sys/class/gpio/gpio25/value
+  	echo 0 > /sys/class/gpio/gpio24/value
 	done
 } 
 

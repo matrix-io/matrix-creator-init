@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function voice_esp32_reset()
 {
 	echo 25 > /sys/class/gpio/export 2> /dev/null
@@ -7,3 +9,5 @@ function voice_esp32_reset()
 	echo 0 > /sys/class/gpio/gpio25/value
 	echo 1 > /sys/class/gpio/gpio25/value
 }
+
+voice_esp32_reset

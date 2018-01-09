@@ -10,6 +10,6 @@ Package: matrixio-creator-init
 Conflicts: matrix-creator-init
 Replaces: matrix-creator-init
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, matrixio-openocd, wiringpi, matrixio-xc3sprog
+Depends: ${shlibs:Depends}, ${misc:Depends}, matrixio-openocd, wiringpi, matrixio-xc3sprog, python-pip
 Description: Install scripts that can program the MATRIX Creator FPGA and SAM3 IMU.
  Install scripts that can program the MATRIX Creator FPGA and SAM3 IMU.
