@@ -31,7 +31,7 @@ int main() {
   hal::WishboneBus bus;
   bus.SpiInit();
   fpga_version fpga;
-
+  
   bus.GetSoftwareVersion(reinterpret_cast<char *>(&fpga),sizeof(fpga));
 
   std::cout << "IDENTIFY = " << std::hex << fpga.identify << std::endl;
