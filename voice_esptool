@@ -1,0 +1,20 @@
+#!/bin/bash
+
+function voice_esptool() 
+{
+	echo -----------------------------------
+	echo esptool.py wrapper for MATRIX Voice
+	echo -----------------------------------
+
+	ESPTOOL=$(which esptool.py)
+
+	voice_esp32_enable &
+
+	ENPID=$!
+	
+	${ESPTOOL} ${@}
+
+	kill -9 ${ENPID} >/dev/null 2>/dev/null
+}
+
+voice_esptool
