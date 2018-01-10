@@ -15,3 +15,4 @@ function voice_esptool()
 }
 
 voice_esptool ${@}
+voice_esp32_reset
