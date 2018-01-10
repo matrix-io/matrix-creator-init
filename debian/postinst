@@ -14,4 +14,8 @@ cp /boot/config.txt /boot/config.txt.bk && /usr/share/matrixlabs/matrixio-device
 echo "Disable UART console"
 /usr/share/matrixlabs/matrixio-devices/matrixlabs_remove_console.py
 
+echo "Installing esptool"
+
+pip install esptool
+
 echo "Please restart your Raspberry Pi after installation"

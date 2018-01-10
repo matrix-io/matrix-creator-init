@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function voice_esptool() 
+{
+	echo -----------------------------------
+	echo esptool.py wrapper for MATRIX Voice
+	echo -----------------------------------
+
+	ESPTOOL=$(which esptool.py)
+
+	voice_esp32_enable 
+
+	${ESPTOOL} ${@}
+
+}
+
+voice_esptool ${@}
+voice_esp32_reset

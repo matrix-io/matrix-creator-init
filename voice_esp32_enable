@@ -1,0 +1,20 @@
+#!/bin/bash
+
+function voice_esp32_enable() 
+{
+	echo 25 > /sys/class/gpio/export 2> /dev/null
+	echo 24 > /sys/class/gpio/export 2> /dev/null
+
+	echo out > /sys/class/gpio/gpio25/direction # ESP_EN
+	echo out > /sys/class/gpio/gpio24/direction # ESP EN_PROG
+
+  	echo 1 > /sys/class/gpio/gpio25/value
+  	#The ESP32 will enter the serial bootloader when ESP_EN_PROG is held low on reset.
+  	echo 0 > /sys/class/gpio/gpio24/value
+  	echo 0 > /sys/class/gpio/gpio25/value
+  	echo 0 > /sys/class/gpio/gpio24/value
+  	echo 1 > /sys/class/gpio/gpio25/value
+  	echo 0 > /sys/class/gpio/gpio24/value
+} 
+
+voice_esp32_enable

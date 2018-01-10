@@ -8,6 +8,7 @@ function reset_voice(){
   echo 1 > /sys/class/gpio/gpio26/value
   echo 0 > /sys/class/gpio/gpio26/value
   echo 1 > /sys/class/gpio/gpio26/value 
+  sleep 2
 }
 
 function reset_creator(){
@@ -16,7 +17,6 @@ function reset_creator(){
   echo 1 > /sys/class/gpio/gpio18/value
   echo 0 > /sys/class/gpio/gpio18/value
   echo 1 > /sys/class/gpio/gpio18/value
-  sleep 2 
 }
 
 function try_program_creator() {
