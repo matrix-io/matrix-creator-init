@@ -18,6 +18,7 @@ case "${MATRIX_DEVICE}" in
     ;;
   "6032bad2")
     echo "*** MATRIX Voice initial process has been launched"
+    voice_esp32_reset
     ;;
 esac
 
