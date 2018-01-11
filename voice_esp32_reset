@@ -6,8 +6,8 @@ function voice_esp32_reset()
 	echo out > /sys/class/gpio/gpio25/direction
 
 	echo 24 > /sys/class/gpio/export 2> /dev/null
+	echo out > /sys/class/gpio/gpio24/direction
 
-	echo out > /sys/class/gpio/gpio25/direction
 	echo 1 > /sys/class/gpio/gpio24/value
 	echo 0 > /sys/class/gpio/gpio25/value
 	echo 1 > /sys/class/gpio/gpio25/value
