@@ -1,3 +1,12 @@
+matrixio-creator-init (0.4.1) unstable; urgency=medium
+
+  * Support write/read functions at the same time ESP32 and Raspberry - MATRIX Voice
+  * Use the 0.2.0 Version of libmatrixio-creator-hal - memory maps has been changed
+  * Update FPGA firmware - MATRIX Voice - MATRIX Creator
+
+ --  Kevin Patino <kevin.patino@admobilize.com>  Mar, 30 Jan 2018 11:24:00 +0000
+
+
 matrixio-creator-init (0.4.0) unstable; urgency=medium
 
   * Adding MATRIX Voice ESP32 tool scripts
