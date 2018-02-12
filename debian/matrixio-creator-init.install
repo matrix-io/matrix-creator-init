@@ -20,3 +20,4 @@ asound.conf etc
 voice_esptool usr/bin
 voice_esp32_enable usr/bin
 voice_esp32_reset usr/bin
+matrix_voice.config etc/matrixio-devices
