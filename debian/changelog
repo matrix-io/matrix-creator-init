@@ -1,3 +1,11 @@
+matrixio-creator-init (0.4.2) unstable; urgency=medium
+
+  * Support Audio Output in MATRIX Voice
+  * Adding config file for ESP32_RESET
+  * Bug Fix: MATRIX Creator GPIO controller
+
+ --  Kevin Patino <kevin.patino@admobilize.com>  Mon, 12 Feb 2018 10:32:00 +0000
+
 matrixio-creator-init (0.4.1) unstable; urgency=medium
 
   * Support write/read functions at the same time ESP32 and Raspberry - MATRIX Voice
