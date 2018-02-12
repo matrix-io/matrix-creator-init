@@ -19,6 +19,7 @@ case "${MATRIX_DEVICE}" in
   "6032bad2")
     echo "*** MATRIX Voice initial process has been launched"
     voice_esp32_reset
+    echo 0 > /sys/class/gpio/gpio25/value
     ;;
 esac
 
