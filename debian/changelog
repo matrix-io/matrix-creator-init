@@ -1,3 +1,10 @@
+matrixio-creator-init (0.4.3) unstable; urgency=medium
+
+  * Bug Fix: Set a volume gain the Micrphone Array FPGA
+  * Update MATRIX Creator FPGA in order to work with the recently updates.
+
+ --  Kevin Patino <kevin.patino@admobilize.com>  Wed, 14 Feb 2018 11:45:00 +0000
+
 matrixio-creator-init (0.4.2) unstable; urgency=medium
 
   * Support Audio Output in MATRIX Voice
