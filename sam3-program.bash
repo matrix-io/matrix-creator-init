@@ -62,7 +62,8 @@ function try_program() {
   echo $RES
   
   sleep 0.5
-  reset_mcu  
+  reset_mcu
+  sleep 1
 }
 
 function enable_program() {
@@ -73,13 +74,14 @@ function enable_program() {
 }
 
 function check_firmware() {
- COMPARE_VERSION=$(diff <(./firmware_info) <(cat mcu_firmware.version)|wc -l)
-
- if [ "$COMPARE_VERSION" == "0" ];then
-  echo 1
- else #failed
-  echo 0 
- fi
+  FIRMWARE_DIFFERS=$(openocd -f cfg/sam3s_rpi_sysfs_check.cfg 2>&1 | grep -c 'contents differ')
+  if [ "$FIRMWARE_DIFFERS" == "1" ]; then
+    # new or no firmware
+    echo 0
+  else
+    # same firmware
+    echo 1
+  fi
 }
 
 for i in 4 17 18 19 20 22 23 27
@@ -103,7 +105,7 @@ then
 fi
 enable_program
 count=0
-while [  $count -lt 30 ]; do
+while [  $count -lt 5 ]; do
   TEST=$(try_program)
   if [ "$TEST" == "1" ];then
         CHECK=$(check_firmware)
