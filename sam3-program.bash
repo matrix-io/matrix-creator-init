@@ -74,14 +74,17 @@ function enable_program() {
 }
 
 function check_firmware() {
-  FIRMWARE_DIFFERS=$(openocd -f cfg/sam3s_rpi_sysfs_check.cfg 2>&1 | grep -c 'contents differ')
-  if [ "$FIRMWARE_DIFFERS" == "1" ]; then
-    # new or no firmware
-    echo 0
-  else
-    # same firmware
-    echo 1
+  local result=1
+  local output=$(openocd -f cfg/sam3s_rpi_sysfs_check.cfg 2>&1)
+  if [[ "$output" == *"sam3-gpnvm1: 0"* ]]; then
+    # wrong bootmode
+    result=0
   fi
+  if [[ "$output" == *"contents differ"* ]]; then
+    # new or no firmware
+    result=0
+  fi
+  echo "$result"
 }
 
 for i in 4 17 18 19 20 22 23 27
@@ -103,7 +106,9 @@ then
   echo "SAM3 MCU was programmed before. Not programming it again."
   exit 0
 fi
+
 enable_program
+
 count=0
 while [  $count -lt 5 ]; do
   TEST=$(try_program)
