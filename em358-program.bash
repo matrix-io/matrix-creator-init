@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHECKSUM=d9dd7b84f311ca80a83d42f546f179e4
+CHECKSUM=1443f09519c6fb8ba88d4e8dd9e74f12
 LOG_FILE=/tmp/em358-program.log
 
 function super_reset()
@@ -50,7 +50,7 @@ function check_flash_status() {
 
 function try_program() {
   sleep 0.5
-  RES=$(openocd -f  cfg/em358.cfg 2>&1 | tee ${LOF_FILE} | grep wrote | wc -l)
+  RES=$(openocd -f  cfg/em358.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
   echo $RES
 }
 
@@ -90,7 +90,6 @@ super_reset
 count=0
 while [  $count -lt 10 ]; do
   TEST=$(try_program)
-  echo TEST=${TEST}
 
   if [ "$TEST" == "1" ];
   then
