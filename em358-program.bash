@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHECKSUM=1443f09519c6fb8ba88d4e8dd9e74f12
+CHECKSUM=2f58e62dcd36cf18490c80435fb29992
 LOG_FILE=/tmp/em358-program.log
 
 function super_reset()
@@ -45,12 +45,12 @@ function super_reset()
 }
 
 function check_flash_status() {
-  openocd -f  cfg/em358_check.cfg 2>&1
+  openocd -f  cfg/em358_check.cfg > ${LOG_FILE} 2>  ${LOG_FILE} 
 }
 
 function try_program() {
   sleep 0.5
-  RES=$(openocd -f  cfg/em358.cfg 2>&1 | tee ${LOG_FILE} | grep wrote | wc -l)
+  RES=$(openocd -f  cfg/em358.cfg 2>&1 | tee -a ${LOG_FILE} | grep wrote | wc -l)
   echo $RES
 }
 
@@ -60,7 +60,7 @@ function enable_program() {
   echo 0 > /sys/class/gpio/gpio20/value
   echo 1 > /sys/class/gpio/gpio20/value
 
-  echo "Running the program instead of the bootloader" 
+  echo "*** Running the program instead of the bootloader" 
 
 }
 
