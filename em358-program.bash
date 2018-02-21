@@ -45,7 +45,7 @@ function super_reset()
 }
 
 function check_flash_status() {
-  openocd -f  cfg/em358_check.cfg > ${LOG_FILE} 2>  ${LOG_FILE} 
+  openocd -f  cfg/em358_check.cfg > /dev/null 2>  /dev/null 
 }
 
 function try_program() {
