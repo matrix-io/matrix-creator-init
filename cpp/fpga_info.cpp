@@ -30,12 +30,9 @@ struct fpga_version {
 int main() {
   hal::WishboneBus bus;
   bus.SpiInit();
-  fpga_version fpga;
-  
-  bus.GetSoftwareVersion(reinterpret_cast<char *>(&fpga),sizeof(fpga));
-
-  std::cout << "IDENTIFY = " << std::hex << fpga.identify << std::endl;
-  std::cout << "VERSION = " << std::hex << fpga.version << std::endl;
+     
+  std::cout << "IDENTIFY = " << std::hex << bus.MatrixName() << std::endl;
+  std::cout << "VERSION = " << std::hex << bus.MatrixVersion() << std::endl;
 
   return 0;
 }
