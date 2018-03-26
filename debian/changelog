@@ -5,7 +5,7 @@ matrixio-creator-init (0.4.6) unstable; urgency=medium
   * Remove asound.conf.
   * Make compatible with libmatrixio-creator-hal v0.3.0
 
- --  Kevin Patino <kevin.patino@admobilize.com>  Wed, 21 Feb 2018 16:45:00 +0000
+ --  Kevin Patino <kevin.patino@admobilize.com>  Mon, 26 Feb 2018 16:45:00 +0000
 
 matrixio-creator-init (0.4.5) unstable; urgency=medium
 
