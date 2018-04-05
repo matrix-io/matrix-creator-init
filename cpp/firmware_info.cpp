@@ -18,14 +18,14 @@
 #include <iostream>
 #include <iomanip>
 
-#include <matrix_hal/wishbone_bus.h>
+#include <matrix_hal/matrixio_bus.h>
 #include <matrix_hal/mcu_firmware.h>
 
 namespace hal = matrix_hal;
 
 int main() {
-  hal::WishboneBus bus;
-  bus.SpiInit();
+  hal::MatrixIOBus bus;
+  bus.Init();
 
   hal::MCUFirmware mcu_firmware;
   mcu_firmware.Setup(&bus);
