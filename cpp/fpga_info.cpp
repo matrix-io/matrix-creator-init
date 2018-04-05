@@ -31,8 +31,8 @@ int main() {
   hal::MatrixIOBus bus;
   bus.Init();
      
-  std::cout << "IDENTIFY = " << std::hex << bus.MatrixName() << std::endl;
-  std::cout << "VERSION = " << std::hex << bus.MatrixVersion() << std::endl;
+  std::cout << "FPGA IDENTIFY = " << std::hex << bus.MatrixName() << std::endl;
+  std::cout << "FPGA VERSION = " << std::hex << bus.MatrixVersion() << std::endl;
 
   return 0;
 }
