@@ -3,7 +3,7 @@
 cd /usr/share/matrixlabs/matrixio-devices
 
 function detect_device(){
-  MATRIX_DEVICE=$(./fpga_info | grep IDENTIFY | cut -f 3 -d ' ')
+  MATRIX_DEVICE=$(./fpga_info | grep IDENTIFY | cut -f 4 -d ' ')
 }
 
 function read_voice_config(){
