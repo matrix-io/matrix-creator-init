@@ -1,3 +1,9 @@
+matrixio-creator-init (0.4.8) unstable; urgency=medium
+
+  * Support libmatrixio-creator-hal unification release.
+
+ --  Kevin Patino <kevin.patino@admobilize.com>  Mon, 9 Apr 2018 15:00:00 +0000
+
 matrixio-creator-init (0.4.7) unstable; urgency=medium
 
   * Fix libmatrixio-creator-hal as a dependency.
