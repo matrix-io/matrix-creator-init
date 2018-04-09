@@ -61,7 +61,7 @@ done
 
 function check_voice() {
   reset_voice
-  COMPARE_VERSION=$(diff <(./fpga_info) <(cat voice.version)|wc -l)
+  COMPARE_VERSION=$(diff <(./fpga_info | grep FPGA) <(cat voice.version)|wc -l)
   if [ "$COMPARE_VERSION" == "0" ];then
      echo "*** MATRIX Voice has a updated firmware"
      exit 0

@@ -18,7 +18,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include <matrix_hal/wishbone_bus.h>
+#include <matrix_hal/matrixio_bus.h>
 
 namespace hal = matrix_hal;
 
@@ -28,11 +28,11 @@ struct fpga_version {
 };
 
 int main() {
-  hal::WishboneBus bus;
-  bus.SpiInit();
+  hal::MatrixIOBus bus;
+  bus.Init();
      
-  std::cout << "IDENTIFY = " << std::hex << bus.MatrixName() << std::endl;
-  std::cout << "VERSION = " << std::hex << bus.MatrixVersion() << std::endl;
+  std::cout << "FPGA IDENTIFY = " << std::hex << bus.MatrixName() << std::endl;
+  std::cout << "FPGA VERSION = " << std::hex << bus.MatrixVersion() << std::endl;
 
   return 0;
 }

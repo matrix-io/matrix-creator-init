@@ -73,7 +73,7 @@ function enable_program() {
 }
 
 function check_firmware() {
- COMPARE_VERSION=$(diff <(./firmware_info) <(cat mcu_firmware.version)|wc -l)
+ COMPARE_VERSION=$(diff <(./firmware_info | grep MCU) <(cat mcu_firmware.version)|wc -l)
 
  if [ "$COMPARE_VERSION" == "0" ];then
   echo 1
