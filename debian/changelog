@@ -1,6 +1,6 @@
 matrixio-creator-init (0.4.9) unstable; urgency=medium
 
-  * Support libmatrixio-creator-hal unification release.
+  * Support matrixio-microphone-core: Update FPGA firmware.
 
  --  Kevin Patino <kevin.patino@admobilize.com>  Fri, 18 May 2018 15:00:00 +0000
 
