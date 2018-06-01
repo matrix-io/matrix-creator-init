@@ -1,3 +1,9 @@
+matrixio-creator-init (0.4.11) unstable; urgency=medium
+
+  * Bug Fix: Remove pop in playback core.
+
+ --  Kevin Patino <kevin.patino@admobilize.com>  Fri, 1 Jun 2018 15:00:00 +0000
+
 matrixio-creator-init (0.4.10) unstable; urgency=medium
 
   * Support Zwave GPIO Manager.
