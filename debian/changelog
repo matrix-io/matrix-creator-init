@@ -1,3 +1,9 @@
+matrixio-creator-init (0.4.13) unstable; urgency=medium
+
+  * Bug Fix: Error in humidity calculation in MCU firmware
+
+ --  Yoel Ramos <yoel.castillo@admobilize.com>  Thu, 20 Jul 2018 15:00:00 +0000
+
 matrixio-creator-init (0.4.12) unstable; urgency=medium
 
   * GPIO Core MATRIX Voice
