@@ -1,3 +1,9 @@
+matrixio-creator-init (0.4.13) unstable; urgency=medium
+
+  * Fix in Playback core module. It is now compatible with signed 16bit PCM  
+
+ --  Yoel Ramos Castillo <yoel.castillo@matrixlabs.ai>  Tue, 13 Nov 2018 15:00:00 +0000
+
 matrixio-creator-init (0.4.12) unstable; urgency=medium
 
   * GPIO Core MATRIX Voice
