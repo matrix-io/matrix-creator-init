@@ -10,7 +10,7 @@ pipeline:
       - export COMPONENT=$([ "${DRONE_BUILD_EVENT}" = "tag" ] && echo "main" || echo "unstable")
       - echo "deb https://apt.matrix.one/raspbian ${CODENAME} $COMPONENT" > /etc/apt/sources.list.d/matrixlabs.list
       - apt-get update
-      - apt-get install --yes libfftw3-dev libmatrixio-creator-hal-dev libreadline6
+      - apt-get install --yes libfftw3-dev libmatrixio-creator-hal-dev libreadline6 libncurses5
       - debuild -us -uc -b
       - mv ../*.deb .
 
