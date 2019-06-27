@@ -1,4 +1,10 @@
-matrixio-creator-init (0.4.14) unstable; urgency=medium
+matrixio-creator-init (0.4.15) unstable; urgency=medium
+
+  * Fix script to add new setings in /boot/config.txt
+
+ --  Leonardo Urrego <leonardo.urrego@admobilize.com>  Thu, 27 Jun 2019 15:00:00 +0000
+ 
+ matrixio-creator-init (0.4.14) unstable; urgency=medium
 
   * Buster support added (Jessie deprecated). 
 

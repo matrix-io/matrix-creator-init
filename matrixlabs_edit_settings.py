@@ -42,15 +42,7 @@ for original in ORIGINAL_LINES:
         print original[1]
     else:
         key, value = key_and_value(original)
-        if key in KEYS_TO_CHANGE and KEYS_TO_CHANGE[key] != value:
-            new_value = KEYS_TO_CHANGE[key]
-            print '# previous value for {} was {}.'.format(key,
-                                                           value,
-                                                           new_value),
-            print 'Changed by matrixlabs_edit_settings.py'
-            print '{}={}'.format(key, new_value)
-            del  KEYS_TO_CHANGE[key]
-        elif key in KEYS_TO_CHANGE and KEYS_TO_CHANGE[key] == value:
+        if key in KEYS_TO_CHANGE and KEYS_TO_CHANGE[key] == value:
             print '{}={}'.format(key, KEYS_TO_CHANGE[key])
             del KEYS_TO_CHANGE[key]
         else:
@@ -60,5 +52,5 @@ if len(KEYS_TO_CHANGE):
     print '# Lines added by matrixlabs_edit_settings.py.'
     print '# Commented definitions of the settings might be above.'
 
-for key  in sorted(KEYS_TO_CHANGE):
-    print '{}={}'.format(key, KEYS_TO_CHANGE[key])
+    for key  in sorted(KEYS_TO_CHANGE):
+        print '{}={}'.format(key, KEYS_TO_CHANGE[key])
