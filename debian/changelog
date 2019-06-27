@@ -8,7 +8,7 @@ matrixio-creator-init (0.4.15) unstable; urgency=medium
 
   * Buster support added (Jessie deprecated). 
 
- --  Yoel Ramos Castillo <andres.calderon@matrixlabs.ai>  Tue, 25 Jun 2019 15:00:00 +0000
+ --  Andres Calderon <andres.calderon@matrixlabs.ai>  Tue, 25 Jun 2019 15:00:00 +0000
 
 matrixio-creator-init (0.4.13) unstable; urgency=medium
 
