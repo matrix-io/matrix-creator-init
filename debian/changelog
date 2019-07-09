@@ -1,3 +1,9 @@
+matrixio-creator-init (0.4.16) unstable; urgency=medium
+
+  * MCU blob updated (humidity fixed)
+
+ --  Andres Calderon <andres.calderon@admobilize.com>  Tue, 9 Jul 2019 16:00:00 +0000
+
 matrixio-creator-init (0.4.15) unstable; urgency=medium
 
   * Fix script to add new setings in /boot/config.txt
