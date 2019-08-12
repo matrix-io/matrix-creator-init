@@ -2,6 +2,8 @@
 
 cd /usr/share/matrixlabs/matrixio-devices
 
+P4DETECT=$(grep "Pi 4" /sys/firmware/devicetree/base/model)
+
 function reset_voice(){
   echo 26 > /sys/class/gpio/export 2>/dev/null
   echo out > /sys/class/gpio/gpio26/direction
@@ -20,17 +22,31 @@ function reset_creator(){
 }
 
 function try_program_creator() {
+  if [ -n "$P4DETECT" ]; 
+  then 
+	  CABLE=sysfsgpio_creator
+  else
+	  CABLE=matrix_creator
+  fi
+
   reset_creator
   sleep 0.1
-  xc3sprog -c matrix_creator blob/system_creator.bit -p 1 > /dev/null 2> /dev/null
+  xc3sprog -c $CABLE blob/system_creator.bit -p 1 > /dev/null 2> /dev/null
 }
 
 function try_program_voice() {
+  if [ -n "$P4DETECT" ]; 
+  then 
+	  CABLE=sysfsgpio_voice
+  else
+	  CABLE=matrix_voice
+  fi
+
   reset_voice
   sleep 0.1
-  xc3sprog -c matrix_voice blob/bscan_spi_s6lx9_ftg256.bit > /dev/null 2> /dev/null
+  xc3sprog -c $CABLE blob/bscan_spi_s6lx9_ftg256.bit > /dev/null 2> /dev/null
   sleep 0.1
-  xc3sprog -c matrix_voice -I blob/system_voice.bit > /dev/null 2> /dev/null
+  xc3sprog -c $CABLE -I blob/system_voice.bit > /dev/null 2> /dev/null
 }
 
 function update_voice(){
